@@ -16,5 +16,38 @@
       "id": 5,
       "name": "krishna"
     }
+  ],
+  "hospitals": [
+    {
+      "id": 1,
+      "name": "krishna",
+      "city": "cbe"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 18,
+      "name": "sankar",
+      "doctor": "Ram",
+      "email": "sa@nr.com",
+      "visit_time": "2020-07-04T15:03:51.793Z",
+      "number": "3256325632",
+      "injury": "pain"
+    },
+    {
+      "id": 19,
+      "name": "Ram",
+      "doctor": "albonsa",
+      "email": "san@example.com",
+      "visit_time": "2020-07-05T01:45:39.152Z",
+      "number": "9962154635",
+      "injury": "back pain"
+    }
+  ],
+  "images": [
+    {
+      "name": "adharr",
+      "avatar": "/9j[...]"
+    }
   ]
 }

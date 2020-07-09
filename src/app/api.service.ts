@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { retry, catchError } from 'rxjs/operators';
-import { throwError, Scheduler } from 'rxjs';
+import { throwError, Scheduler, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService implements OnInit {
+  private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
   _url = 'http://localhost:5200/persons';
   _url1 = 'http://api.giphy.com/v1/gifs/trending';
   stickers = 'http://api.giphy.com/v1/stickers/random';
   api = '17r6fP4PNFGOt3f47gY5ZK0cjpusQFjH';
 
   constructor(private http: HttpClient) {}
+
   ngOnInit() {
     this.getAlldata();
   }
@@ -48,5 +51,8 @@ export class ApiService implements OnInit {
   }
   delete(id) {
     return this.http.delete(this._url + `/${id}`);
+  }
+  changem(message) {
+    this.messageSource.next(message);
   }
 }

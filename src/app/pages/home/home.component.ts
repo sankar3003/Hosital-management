@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit {
       let req = this.form.value;
       this.api.save(req, id).subscribe((res) => {
         if (res) {
-          alert('Update Successfully');
           this.getAlldata();
           this.form.reset();
         }
@@ -54,7 +53,6 @@ export class HomeComponent implements OnInit {
       let id = this.form.get('id').value;
       this.api.save(req, id).subscribe((res) => {
         if (res) {
-          alert('Insertd Successfully');
           this.getAlldata();
           this.form.reset();
         }

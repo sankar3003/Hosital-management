@@ -16,6 +16,7 @@ export class AddDoctorComponent implements OnInit {
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
   post: any = '';
+  message: any;
 
   constructor(private formBuilder: FormBuilder) {}
 
