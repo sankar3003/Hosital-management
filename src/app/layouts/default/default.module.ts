@@ -8,6 +8,6 @@ import { DefaultroutingModule } from './default.routing';
 @NgModule({
   imports: [CommonModule, DefaultroutingModule, SharedModule],
   declarations: [DefaultComponent],
-  exports: [[DefaultComponent]],
+  exports: [],
 })
 export class DefaultModule {}

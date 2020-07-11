@@ -1,16 +1,33 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { ApiService } from './api.service';
+
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { HttpClient } from '@angular/common/http';
-import { catchError, map, filter, retry } from 'rxjs/operators';
-import { of, Observable, Subject, from, interval, pipe } from 'rxjs';
-import { ajax } from 'rxjs/ajax';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  ngOnInit() {}
+export class AppComponent implements OnInit, AfterViewInit {
+  color: string;
+
+  name: string = 'sankar';
+
+  userLoggedIn: boolean;
+
+  myobj = {
+    name: 'John',
+    age: 30,
+    cars: ['Ford', 'BMW', 'Fiat'],
+  };
+
+  n: string;
+  mname: any;
+
+  constructor(private api: ApiService) {}
+  ngOnInit() {
+    this.api.currentMessage.subscribe((m) => (this.message = m));
+  }
   @ViewChild('sidenav') sidenav: MatSidenav;
   isExpanded = true;
   showSubmenu: boolean = false;
@@ -27,5 +44,13 @@ export class AppComponent implements OnInit {
     if (!this.isExpanded) {
       this.isShowing = false;
     }
+  }
+
+  ngAfterViewInit() {}
+
+  message: string;
+
+  receiveMessage($event) {
+    this.message = $event;
   }
 }

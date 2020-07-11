@@ -1,0 +1,69 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon appHighlight>menu</mat-icon>
+  </button>
+
+  <h1 class="example-app-name" appHighlight>Hospital Management</h1>
+  <span class="fill-remaining-space"></span>
+  <button mat-icon-button>logout</button>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+  >
+    <mat-nav-list (click)="showSubmenu = !showSubmenu" class="parent">
+      <mat-list-item [routerLink]="['/add-doctor']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >Add Doctor</span
+        >
+        <mat-icon mat-list-icon>person_add</mat-icon>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/add-appointment']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >Add Appointment</span
+        >
+        <mat-icon mat-list-icon>date_range</mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/add-hospital']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >Add Hospital</span
+        >
+        <mat-icon mat-list-icon> local_hospital</mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/view-doctor']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >View Doctor</span
+        >
+
+        <mat-icon mat-list-icon> person_pin</mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/view-hospital']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >View Hospital</span
+        >
+        <mat-icon mat-list-icon>home</mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/view-appointment']">
+        <span class="full-width" *ngIf="isExpanded || isShowing"
+          >View Appointment</span
+        >
+        <mat-icon mat-list-icon>update</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
