@@ -31,6 +31,7 @@ import {
 } from '@angular-material-components/datetime-picker';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AreaComponent } from './area/area.component';
 
 const Array: any = [
   MatCheckboxModule,
