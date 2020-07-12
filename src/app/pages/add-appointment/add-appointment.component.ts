@@ -129,15 +129,20 @@ export class AddAppointmentComponent implements OnInit {
     this.isBtn = false;
   }
   getappointments() {
-    this.appointservice.getAppointment().subscribe((res) => {
-      console.log(res);
-      if (res) {
-        this.dataSource = new MatTableDataSource<appointments>(res);
-        this.data = this.dataSource;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+    this.appointservice.getAppointment().subscribe(
+      (res) => {
+        console.log(res);
+        if (res) {
+          this.dataSource = new MatTableDataSource<appointments>(res);
+          this.data = this.dataSource;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      },
+      (error) => {
+        alert('please Start Json Server');
       }
-    });
+    );
   }
 
   save() {
