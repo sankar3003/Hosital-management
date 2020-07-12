@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'add-appointment',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
       {
@@ -18,6 +18,18 @@ const routes: Routes = [
           import('src/app/pages/add-appointment/add-appointment.module').then(
             (m) => m.AddAppointmentModule
           ),
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('src/app/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
+      },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('src/app/pages/user/user.module').then((m) => m.UserModule),
       },
       {
         path: 'add-doctor',
