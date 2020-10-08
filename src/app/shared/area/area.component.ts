@@ -143,7 +143,7 @@ export class AreaComponent implements OnInit {
     });
   }
   chartJs() {
-    var myChart = new Chart('myChart', {
+    const myChart = new Chart('myChart', {
       type: 'bar',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
